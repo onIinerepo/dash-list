@@ -26,73 +26,14 @@
     }
 
     .channels {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+      gap: 10px;
       padding: 15px;
     }
 
     button {
-      padding: 15px 20px;
-      border: 0;
-      border-radius: 8px;
-      background: #333;
-      color: white;
-      font-size: 15px;
-      cursor: pointer;
-    }
-
-    button:hover {
-      background: #555;
-    }
-
-    .player-container {
-      width: 100%;
-      background: #000;
-    }
-
-    video {
-      display: block;
-      width: 100%;
-      max-width: 1200px;
-      margin: auto;
-      background: #000;
-    }
-  </style>
-
-</head>
-
-<body>
-
-  <header>
-    OTT IPTV
-  </header>
-
-  <div class="player-container">
-    <video id="videoPlayer" controls playsinline></video>
-  </div>
-
-  <div class="channels">
-
-```
-<button onclick="playChannel('NOT_AVAILABLE_401.mpd')">
-  NOT AVAILABLE 401
-</button>
-```
-
-  </div>
-
-  <script>
-    const video = document.getElementById("videoPlayer");
-
-    const player = dashjs.MediaPlayer().create();
-
-    function playChannel(mpdUrl) {
-      player.attachSource(mpdUrl);
-    }
-
-    playChannel("NOT_AVAILABLE_401.mpd");
-  </script>
-
-</body>
-</html>
+      padding: 15px;
       border: 0;
       border-radius: 8px;
       background: #333;
@@ -134,8 +75,16 @@
   <div class="channels">
 
 ```
-<button onclick="playChannel('NOT_AVAILABLE_401.mpd')">
-  NOT AVAILABLE 401
+<button onclick="playChannel('channel1/manifesto.mpd')">
+  Channel 1
+</button>
+
+<button onclick="playChannel('channel2/manifesto.mpd')">
+  Channel 2
+</button>
+
+<button onclick="playChannel('channel3/manifesto.mpd')">
+  Channel 3
 </button>
 ```
 
@@ -144,13 +93,13 @@
   <script>
     const video = document.getElementById("videoPlayer");
 
-    const player = dashjs.MediaPlayer().create();
+    let player = dashjs.MediaPlayer().create();
 
     function playChannel(mpd) {
       player.attachSource(mpd);
     }
 
-    playChannel("NOT_AVAILABLE_401.mpd");
+    playChannel("channel1/manifesto.mpd");
   </script>
 
 </body>
