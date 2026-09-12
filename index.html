@@ -75,16 +75,8 @@
   <div class="channels">
 
 ```
-<button onclick="playChannel('channel1.mpd')">
-  Channel 1
-</button>
-
-<button onclick="playChannel('channel2.mpd')">
-  Channel 2
-</button>
-
-<button onclick="playChannel('channel3.mpd')">
-  Channel 3
+<button onclick="playChannel('NOT_AVAILABLE_401.mpd')">
+  NOT AVAILABLE 401
 </button>
 ```
 
@@ -93,13 +85,13 @@
   <script>
     const video = document.getElementById("videoPlayer");
 
-    let player = dashjs.MediaPlayer().create();
+    const player = dashjs.MediaPlayer().create();
 
     function playChannel(mpd) {
       player.attachSource(mpd);
     }
 
-    playChannel("channel1.mpd");
+    playChannel("NOT_AVAILABLE_401.mpd");
   </script>
 
 </body>
